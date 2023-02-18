@@ -20,6 +20,7 @@ function BookShow({ book, onDelete, onEdit }) {
     if (showEdit) {
         content = <BookEdit book={book} onEdit={onEdit} onSave={handleSumbit} />
     }
+    console.log(content);
 
 
     return <div className="book-show">
