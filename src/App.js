@@ -9,12 +9,20 @@ function App() {
 
 
     const createBook = (title) => {
-        console.log('Needc to add book with:', title);
+        const updateBooks = [title, ...books];
+        setBooks(updateBooks)
+
     }
+    const renderBooks = books.map((book, index) => {
+        return <li key={index}>{book}</li>
+    })
 
 
     return <div>
         <BookCreate onCreate={createBook} />
+        <ul>
+            {renderBooks}
+        </ul>
     </div>
 
 }
