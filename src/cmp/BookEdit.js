@@ -8,6 +8,7 @@ function BookEdit({ book, onEdit, onSave }) {
     }
 
     const handleSumbit = (event) => {
+        console.log(event);
         event.preventDefault();
         onEdit(book.id, value)
         onSave();
