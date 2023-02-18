@@ -4,7 +4,6 @@ function BookCreate({ onCreate }) {
     const [title, setTitle] = useState('');
 
     const handleChange = (event) => {
-        console.log("tomer-branch");
         setTitle(event.target.value);
     }
 
