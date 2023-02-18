@@ -1,16 +1,20 @@
 import { useState } from "react";
 import BookCreate from "./cmp/BookCreate";
-import BookEdit from "./cmp/BookEdit";
 import BookList from "./cmp/BookList";
-import BookShow from "./cmp/BookShow";
+// import BookEdit from "./cmp/BookEdit";
+// import BookShow from "./cmp/BookShow";
 
 function App() {
     const [books, setBooks] = useState([]);
 
 
     const createBook = (title) => {
-        const updateBooks = [title, ...books];
-        setBooks(updateBooks)
+
+        const newBook = [
+            ...books,
+            { id: Math.random() * 9999, title }
+        ];
+        setBooks(newBook)
 
     }
     const renderBooks = books.map((book, index) => {
@@ -18,11 +22,9 @@ function App() {
     })
 
 
-    return <div>
+    return <div className="app">
+        <BookList books={books} />
         <BookCreate onCreate={createBook} />
-        <ul>
-            {renderBooks}
-        </ul>
     </div>
 
 }
