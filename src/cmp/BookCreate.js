@@ -8,6 +8,7 @@ function BookCreate({ onCreate }) {
     }
 
     const handleSumbit = (event) => {
+        console.log("tomer");
         event.preventDefault();
         onCreate(title);
         setTitle('')
