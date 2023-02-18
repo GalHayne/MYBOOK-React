@@ -1,11 +1,28 @@
 import { useState } from "react";
 import BookCreate from "./cmp/BookCreate";
 import BookList from "./cmp/BookList";
-// import BookEdit from "./cmp/BookEdit";
-// import BookShow from "./cmp/BookShow";
 
 function App() {
     const [books, setBooks] = useState([]);
+
+    const editBookById = (id, newTitle) => {
+        const updatedBook = books.map((book) => {
+            if (book.id === id) {
+                return { ...book, title: newTitle }
+            }
+            return book;
+        })
+
+        setBooks(updatedBook);
+    }
+
+    const deleteBookById = (id) => {
+        const updatedBooks = books.filter((book) => {
+            return book.id !== id;
+        });
+
+        setBooks(updatedBooks);
+    };
 
 
     const createBook = (title) => {
@@ -16,14 +33,11 @@ function App() {
         ];
         setBooks(newBook)
 
-    }
-    const renderBooks = books.map((book, index) => {
-        return <li key={index}>{book}</li>
-    })
+    };
 
 
     return <div className="app">
-        <BookList books={books} />
+        <BookList onEdit={editBookById} books={books} onDelete={deleteBookById} />
         <BookCreate onCreate={createBook} />
     </div>
 
