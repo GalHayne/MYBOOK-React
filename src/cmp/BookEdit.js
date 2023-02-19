@@ -8,7 +8,6 @@ function BookEdit({ book, onEdit, onSave }) {
     }
 
     const handleSumbit = (event) => {
-        console.log(event);
         event.preventDefault();
         onEdit(book.id, value)
         onSave();
@@ -16,7 +15,7 @@ function BookEdit({ book, onEdit, onSave }) {
 
 
     return <form onSubmit={handleSumbit} className="book-edit">
-        <label>Title</label>
+        <label>Book title:</label>
         <input className="input" value={value} onChange={handleChange} />
         <button className="button is-primary">
             Save

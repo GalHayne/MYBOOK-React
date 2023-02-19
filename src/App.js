@@ -29,7 +29,7 @@ function App() {
 
         const newBook = [
             ...books,
-            { id: Math.random() * 9999, title }
+            { id: Math.floor(Math.random() * 9999), title }
         ];
         setBooks(newBook)
 
@@ -37,7 +37,8 @@ function App() {
 
 
     return <div className="app">
-        <BookList onEdit={editBookById} books={books} onDelete={deleteBookById} />
+        <h1>Reading List</h1>
+        <BookList books={books} onDelete={deleteBookById} onEdit={editBookById} />
         <BookCreate onCreate={createBook} />
     </div>
 
