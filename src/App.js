@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import BookCreate from "./cmp/BookCreate";
 import BookList from "./cmp/BookList";
@@ -17,6 +18,7 @@ function App() {
     }
 
     const deleteBookById = (id) => {
+
         const updatedBooks = books.filter((book) => {
             return book.id !== id;
         });
@@ -25,13 +27,28 @@ function App() {
     };
 
 
-    const createBook = (title) => {
+    const createBook = async (title) => {
 
-        const newBook = [
+        //####books from DB####
+        const response = await axios.post('http://localhost:3001/books', {
+            title,
+        });
+
+        const updatedBooks = [
             ...books,
-            { id: Math.floor(Math.random() * 9999), title }
-        ];
-        setBooks(newBook)
+            response.data,
+        ]
+        setBooks(updatedBooks);
+        // ###########################################################3####################
+
+        //###books from local####
+        // setBooks(response.data);
+
+        // const newBook = [
+        //     ...books,
+        //     { id: Math.floor(Math.random() * 9999), title }
+        // ];
+        // setBooks(newBook)
 
     };
 
