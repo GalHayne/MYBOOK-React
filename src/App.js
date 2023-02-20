@@ -1,10 +1,24 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookCreate from "./cmp/BookCreate";
 import BookList from "./cmp/BookList";
 
 function App() {
     const [books, setBooks] = useState([]);
+
+    const fetchBooks = async () => {
+        const response = await axios.get('http://localhost:3001/books');
+
+        setBooks(response.data);
+    }
+
+    useEffect(() => {
+        fetchBooks()
+    }, [])
+
+    useEffect(() => {
+        console.log("hadar");
+    })
 
     const editBookById = (id, newTitle) => {
         const updatedBook = books.map((book) => {
