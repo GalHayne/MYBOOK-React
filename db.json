@@ -1,28 +1,8 @@
 {
   "books": [
     {
-      "title": "tamir",
+      "title": "harry potter 2",
       "id": 1
-    },
-    {
-      "title": "hadar",
-      "id": 2
-    },
-    {
-      "title": "ortal",
-      "id": 3
-    },
-    {
-      "title": "siri",
-      "id": 4
-    },
-    {
-      "title": "kiki",
-      "id": 5
-    },
-    {
-      "title": "do you love me?",
-      "id": 6
     }
   ]
 }
